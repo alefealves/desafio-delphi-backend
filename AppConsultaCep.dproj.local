@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2024/03/20 14:13:50.523,=\\Mac\Home\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/03/20 16:40:19.118,C:\Projetos\desafio-delphi-backend\frmConsultaCep.dfm=\\Mac\Home\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/03/20 16:40:19.118,C:\Projetos\desafio-delphi-backend\frmConsultaCep.pas=\\Mac\Home\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/03/20 16:40:35.057,C:\Projetos\desafio-delphi-backend\AppConsultaCep.dproj=\\Mac\Home\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/03/20 16:53:36.112,=C:\Projetos\desafio-delphi-backend\Unit1.pas</Transaction>
+    <Transaction>2024/03/20 16:53:59.837,C:\Projetos\desafio-delphi-backend\uTConsultaCEP.pas=C:\Projetos\desafio-delphi-backend\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -5,7 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
-  Vcl.NumberBox, Vcl.Mask;
+  Vcl.NumberBox, Vcl.Mask, uFormat, RESTRequest4D, DataSet.Serialize.Adapter.RESTRequest4D,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, classe.ConsultaCEP, classe.RetornoCEP;
 
 type
   TformConsultaCep = class(TForm)
@@ -14,7 +17,20 @@ type
     Panel1: TPanel;
     edCEP: TMaskEdit;
     Panel2: TPanel;
+    Label2: TLabel;
+    Label3: TLabel;
+    edtLogradouro: TEdit;
+    Label4: TLabel;
+    edtBairro: TEdit;
+    Label5: TLabel;
+    edtCidade: TEdit;
+    Label6: TLabel;
+    edtUF: TEdit;
+    MemTable: TFDMemTable;
+    edtCEP: TEdit;
     procedure btnConsultarClick(Sender: TObject);
+    procedure edCEPChange(Sender: TObject);
+
   private
     { Private declarations }
     function ValidaCEP(cCep: string): Boolean;
@@ -31,37 +47,50 @@ implementation
 
 procedure TformConsultaCep.btnConsultarClick(Sender: TObject);
 begin
-  //validar dados
-  if ValidaCEP(edCep.Text) then begin
-    ShowMessage('cep válido');
-  end;
+
+  ValidaCEP(edCEP.Text)
+
+end;
+
+procedure TformConsultaCep.edCEPChange(Sender: TObject);
+begin
+   Formatar(edCep, TFormato.CEP);
 end;
 
 function TformConsultaCep.ValidaCEP(cCep: string): Boolean;
+var BconsultaCEP : TConsultaCEP;
+    BretornoCEP : TRetornoCEP;
 begin
 
-  cCep := Trim(StringReplace(cCep, '-', '',[rfReplaceAll, rfIgnoreCase]));
- if (Length(cCEP)>0) then
- begin
+    //validar dados
+    if SomenteNumero(edCEP.Text) <> '' then begin
 
-  if Length(cCep) <> 8 then begin
-     MessageDlg('CEP deve conter 8 dígitos',mtError,[mbOk],0);
-     Result := False
-  end
-  else
-  if (StrToInt(cCep) <= 1000000.0) then
-   begin
-    MessageDlg('CEP tem que ser maior que [01000-000]',mtError,[mbOk],0);
-    Result := False
-   end
-   else
-    Result := True;
- end
- else begin
-   MessageDlg('Favor, informe um CEP',mtError,[mbOk],0);
-   Result := False
- end;
+       if SomenteNumero(cCep).Length <> 8 then
+       begin
+          ShowMessage('CEP inválido');
+          exit;
+       end
+       else begin
 
+          BconsultaCEP := TConsultaCEP.Create;
+          BretornoCEP := TRetornoCEP.Create;
+
+          BretornoCEP := BconsultaCEP.ConsultaCEP(cCep);
+          with BretornoCEP do
+            begin
+
+              edtCEP.Text := BretornoCEP.cep;
+              edtLogradouro.Text := BretornoCEP.logradouro;
+              edtBairro.Text := BretornoCEP.bairro;
+              edtCidade.Text := BretornoCEP.cidade;
+              edtUF.Text := BretornoCEP.uf;
+            end;
+       end;
+    end
+    else begin
+      ShowMessage('Favor, informe um CEP');
+      exit;
+    end;
 end;
 
 end.

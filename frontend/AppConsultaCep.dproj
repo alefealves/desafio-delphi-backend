@@ -102,7 +102,10 @@
             <Form>formConsultaCep</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="uTConsultaCEP.pas"/>
+        <DCCReference Include="classes\classe.RetornoCEP.pas"/>
+        <DCCReference Include="classes\classe.ConsultaCEP.pas"/>
+        <DCCReference Include="units\uFormat.pas"/>
+        <DCCReference Include="units\uLoading.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

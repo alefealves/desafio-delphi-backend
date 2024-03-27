@@ -30,6 +30,7 @@ type
     edtCEP: TEdit;
     procedure btnConsultarClick(Sender: TObject);
     procedure edCEPChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
 
   private
     { Private declarations }
@@ -55,6 +56,11 @@ end;
 procedure TformConsultaCep.edCEPChange(Sender: TObject);
 begin
    Formatar(edCep, TFormato.CEP);
+end;
+
+procedure TformConsultaCep.FormShow(Sender: TObject);
+begin
+  edCEP.SetFocus;
 end;
 
 function TformConsultaCep.ValidaCEP(cCep: string): Boolean;

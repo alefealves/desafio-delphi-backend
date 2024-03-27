@@ -2,28 +2,27 @@ object formConsultaCep: TformConsultaCep
   Left = 0
   Top = 0
   Caption = 'Consulta CEP'
-  ClientHeight = 491
-  ClientWidth = 911
+  ClientHeight = 441
+  ClientWidth = 891
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -24
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnShow = FormShow
   TextHeight = 32
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 911
-    Height = 491
+    Width = 891
+    Height = 441
     Margins.Left = 6
     Margins.Top = 6
     Margins.Right = 6
     Margins.Bottom = 6
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 999
-    ExplicitHeight = 567
     object Label2: TLabel
       Left = 114
       Top = 157
@@ -62,11 +61,10 @@ object formConsultaCep: TformConsultaCep
     object Panel2: TPanel
       Left = 1
       Top = 1
-      Width = 909
+      Width = 889
       Height = 100
       Align = alTop
       TabOrder = 0
-      ExplicitWidth = 1984
       object Label1: TLabel
         Left = 17
         Top = 34

@@ -3,7 +3,10 @@ program AppConsultaCep;
 uses
   Vcl.Forms,
   frmConsultaCep in 'frmConsultaCep.pas' {formConsultaCep},
-  uTConsultaCEP in 'uTConsultaCEP.pas';
+  classe.RetornoCEP in 'classes\classe.RetornoCEP.pas',
+  classe.ConsultaCEP in 'classes\classe.ConsultaCEP.pas',
+  uFormat in 'units\uFormat.pas',
+  uLoading in 'units\uLoading.pas';
 
 {$R *.res}
 

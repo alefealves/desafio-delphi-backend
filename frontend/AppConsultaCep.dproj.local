@@ -26,6 +26,7 @@
     <File Path="classes"/>
     <File Path="classes\classe.RetornoCEP.pas"/>
     <File Path="classes\classe.ConsultaCEP.pas"/>
+    <File Path="units"/>
     <File Path="units\uFormat.pas"/>
     <File Path="units\uLoading.pas"/>
     <File Path="frmConsultaCep.pas"/>

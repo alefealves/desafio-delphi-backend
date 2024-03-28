@@ -53,7 +53,12 @@ begin
       Resp: IResponse;
    begin*}
 
-      Resp := TRequest.New.BaseURL('viacep.com.br/ws/'+SomenteNumero(cCep) + '/json')
+      {*Resp := TRequest.New.BaseURL('viacep.com.br/ws/'+SomenteNumero(cCep) + '/json')
+           .Adapters(TDataSetSerializeAdapter.New(uMemTable))
+           .Accept('application/json')
+           .Get;
+      *}
+      Resp := TRequest.New.BaseURL('http://localhost:3002/cep/'+SomenteNumero(cCep))
            .Adapters(TDataSetSerializeAdapter.New(uMemTable))
            .Accept('application/json')
            .Get;
